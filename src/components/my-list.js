@@ -1,4 +1,4 @@
-import { LitElement, html  } from 'lit-element';
+import { LitElement, html ,css } from 'lit-element';
 
 class MyList extends LitElement {
     static get properties() {
@@ -23,6 +23,7 @@ class MyList extends LitElement {
         ul{
             list-style:none;
             padding:0;
+            font-family: sans-serif
         }
         `;
     }
@@ -33,9 +34,8 @@ class MyList extends LitElement {
         ${this.alumnos.map( element => html`
             <ul>
                 <li>Nombre: ${element.nombre}</li>
-                <li>Edad: ${element.edad}</li>
                 <li>Fecha de alta: ${element.altaFecha}</li>
-                <li>Fecha de baja: ${element.bajaFecha}</li>
+                <li>Pagado: ${element.pagado}</li>
             </ul>
             `)
             }
