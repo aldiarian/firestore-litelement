@@ -23,7 +23,8 @@ export class MyApp extends LitElement {
         return css `
         :host {
             display: block;
-            font-family: sans-serif
+            font-family: sans-serif;
+            width: 300px;
         }
         :host([hidden]) {
             display: none;
@@ -56,11 +57,12 @@ export class MyApp extends LitElement {
         this.db.collection("alumnos").onSnapshot( querySnapshot =>  {
                 const items = [];
                 querySnapshot.forEach( doc =>  {
-                    items.push( doc.data() ) ;
+                    let currentuser = doc.data();
+                    currentuser.id = doc.id;
+                    items.push( currentuser ) ;
                 });
                 this.alumnos = items;
                 console.log(this.alumnos);
-                
             });
         
     }
